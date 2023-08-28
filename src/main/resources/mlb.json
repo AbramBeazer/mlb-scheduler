@@ -1,0 +1,165 @@
+{
+  "name": "Major League Baseball",
+  "leagues": [
+    {
+      "name": "National League",
+      "divisions": [
+        {
+          "name": "NL West",
+          "teams": [
+            {
+              "location": "Los Angeles",
+              "name": "Dodgers"
+            },
+            {
+              "location": "San Francisco",
+              "name": "Giants"
+            },
+            {
+              "location": "San Diego",
+              "name": "Padres"
+            },
+            {
+              "location": "Arizona",
+              "name": "Diamondbacks"
+            },
+            {
+              "location": "Colorado",
+              "name": "Rockies"
+            }
+          ]
+        },
+        {
+          "name": "NL Central",
+          "teams": [
+            {
+              "location": "Chicago",
+              "name": "Cubs"
+            },
+            {
+              "location": "St. Louis",
+              "name": "Cardinals"
+            },
+            {
+              "location": "Milwaukee",
+              "name": "Brewers"
+            },
+            {
+              "location": "Cincinnati",
+              "name": "Reds"
+            },
+            {
+              "location": "Pittsburgh",
+              "name": "Pirates"
+            }
+          ]
+        },
+        {
+          "name": "NL East",
+          "teams": [
+            {
+              "location": "Atlanta",
+              "name": "Braves"
+            },
+            {
+              "location": "Miami",
+              "name": "Marlins"
+            },
+            {
+              "location": "New York",
+              "name": "Mets"
+            },
+            {
+              "location": "Philadelphia",
+              "name": "Phillies"
+            },
+            {
+              "location": "Washington",
+              "name": "Nationals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "American League",
+      "divisions": [
+        {
+          "name": "AL West",
+          "teams": [
+            {
+              "location": "Seattle",
+              "name": "Mariners"
+            },
+            {
+              "location": "Oakland",
+              "name": "Athletics"
+            },
+            {
+              "location": "Los Angeles",
+              "name": "Angels"
+            },
+            {
+              "location": "Houston",
+              "name": "Astros"
+            },
+            {
+              "location": "Texas",
+              "name": "Rangers"
+            }
+          ]
+        },
+        {
+          "name": "AL Central",
+          "teams": [
+            {
+              "location": "Chicago",
+              "name": "White Sox"
+            },
+            {
+              "location": "Kansas City",
+              "name": "Royals"
+            },
+            {
+              "location": "Minnesota",
+              "name": "Twins"
+            },
+            {
+              "location": "Detroit",
+              "name": "Tigers"
+            },
+            {
+              "location": "Cleveland",
+              "name": "Guardians"
+            }
+          ]
+        },
+        {
+          "name": "AL East",
+          "teams": [
+            {
+              "location": "Toronto",
+              "name": "Blue Jays"
+            },
+            {
+              "location": "Boston",
+              "name": "Red Sox"
+            },
+            {
+              "location": "New York",
+              "name": "Yankees"
+            },
+            {
+              "location": "Baltimore",
+              "name": "Orioles"
+            },
+            {
+              "location": "Tampa Bay",
+              "name": "Rays"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
