@@ -9,23 +9,33 @@
           "teams": [
             {
               "location": "Los Angeles",
-              "name": "Dodgers"
+              "name": "Dodgers",
+              "code": "LAD",
+              "rival": "LAA"
             },
             {
               "location": "San Francisco",
-              "name": "Giants"
+              "name": "Giants",
+              "code": "SF",
+              "rival": "OAK"
             },
             {
               "location": "San Diego",
-              "name": "Padres"
+              "name": "Padres",
+              "code": "SD",
+              "rival": "SEA"
             },
             {
               "location": "Arizona",
-              "name": "Diamondbacks"
+              "name": "Diamondbacks",
+              "code": "ARI",
+              "rival": "TEX"
             },
             {
               "location": "Colorado",
-              "name": "Rockies"
+              "name": "Rockies",
+              "code": "COL",
+              "rival": "HOU"
             }
           ]
         },
@@ -34,23 +44,33 @@
           "teams": [
             {
               "location": "Chicago",
-              "name": "Cubs"
+              "name": "Cubs",
+              "code": "CHC",
+              "rival": "CHW"
             },
             {
               "location": "St. Louis",
-              "name": "Cardinals"
+              "name": "Cardinals",
+              "code": "STL",
+              "rival": "KC"
             },
             {
               "location": "Milwaukee",
-              "name": "Brewers"
+              "name": "Brewers",
+              "code": "MIL",
+              "rival": "MIN"
             },
             {
               "location": "Cincinnati",
-              "name": "Reds"
+              "name": "Reds",
+              "code": "CIN",
+              "rival": "CLE"
             },
             {
               "location": "Pittsburgh",
-              "name": "Pirates"
+              "name": "Pirates",
+              "code": "PIT",
+              "rival": "DET"
             }
           ]
         },
@@ -59,23 +79,33 @@
           "teams": [
             {
               "location": "Atlanta",
-              "name": "Braves"
+              "name": "Braves",
+              "code": "ATL",
+              "rival": "BOS"
             },
             {
               "location": "Miami",
-              "name": "Marlins"
+              "name": "Marlins",
+              "code": "MIA",
+              "rival": "TB"
             },
             {
               "location": "New York",
-              "name": "Mets"
+              "name": "Mets",
+              "code": "NYM",
+              "rival": "NYY"
             },
             {
               "location": "Philadelphia",
-              "name": "Phillies"
+              "name": "Phillies",
+              "code": "PHI",
+              "rival": "TOR"
             },
             {
               "location": "Washington",
-              "name": "Nationals"
+              "name": "Nationals",
+              "code": "WSH",
+              "rival": "BAL"
             }
           ]
         }
@@ -89,23 +119,33 @@
           "teams": [
             {
               "location": "Seattle",
-              "name": "Mariners"
+              "name": "Mariners",
+              "code": "SEA",
+              "rival": "SD"
             },
             {
               "location": "Oakland",
-              "name": "Athletics"
+              "name": "Athletics",
+              "code": "OAK",
+              "rival": "SF"
             },
             {
               "location": "Los Angeles",
-              "name": "Angels"
+              "name": "Angels",
+              "code": "LAA",
+              "rival": "LAD"
             },
             {
               "location": "Houston",
-              "name": "Astros"
+              "name": "Astros",
+              "code": "HOU",
+              "rival": "COL"
             },
             {
               "location": "Texas",
-              "name": "Rangers"
+              "name": "Rangers",
+              "code": "TEX",
+              "rival": "ARI"
             }
           ]
         },
@@ -114,23 +154,33 @@
           "teams": [
             {
               "location": "Chicago",
-              "name": "White Sox"
+              "name": "White Sox",
+              "code": "CHW",
+              "rival": "CHC"
             },
             {
               "location": "Kansas City",
-              "name": "Royals"
+              "name": "Royals",
+              "code": "KC",
+              "rival": "STL"
             },
             {
               "location": "Minnesota",
-              "name": "Twins"
+              "name": "Twins",
+              "code": "MIN",
+              "rival": "MIL"
             },
             {
               "location": "Detroit",
-              "name": "Tigers"
+              "name": "Tigers",
+              "code": "DET",
+              "rival": "PIT"
             },
             {
               "location": "Cleveland",
-              "name": "Guardians"
+              "name": "Guardians",
+              "code": "CLE",
+              "rival": "CIN"
             }
           ]
         },
@@ -139,23 +189,33 @@
           "teams": [
             {
               "location": "Toronto",
-              "name": "Blue Jays"
+              "name": "Blue Jays",
+              "code": "TOR",
+              "rival": "PHI"
             },
             {
               "location": "Boston",
-              "name": "Red Sox"
+              "name": "Red Sox",
+              "code": "BOS",
+              "rival": "ATL"
             },
             {
               "location": "New York",
-              "name": "Yankees"
+              "name": "Yankees",
+              "code": "NYY",
+              "rival": "NYM"
             },
             {
               "location": "Baltimore",
-              "name": "Orioles"
+              "name": "Orioles",
+              "code": "BAL",
+              "rival": "WSH"
             },
             {
               "location": "Tampa Bay",
-              "name": "Rays"
+              "name": "Rays",
+              "code": "TB",
+              "rival": "MIA"
             }
           ]
         }
