@@ -160,7 +160,7 @@ public class Main {
             Collections.shuffle(otherTeams);
             List<Series> seriesForTeam = new ArrayList<>();
 
-            Team rival;
+            Team rival = null;
             for (Team otherTeam : otherTeams) {
                 if (team.getRival().equals(otherTeam.getCode())) {
                     rival = otherTeam;
@@ -169,6 +169,9 @@ public class Main {
                 } else {
                     seriesForTeam.add(new Series(3, otherTeam, team));
                 }
+            }
+            if (rival == null) {
+                throw new LeagueInputException("Team " + team.getCode() + " has no rival designated in other league.");
             }
             seriesForTeam.add(new Series(2, team, rival));
             seriesForTeam.add(new Series(2, rival, team));
