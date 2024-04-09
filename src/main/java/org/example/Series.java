@@ -40,7 +40,7 @@ public class Series {
         this.home = home;
     }
 
-    public List<Game> toGames(LocalDate startDate) {
+    public List<Game> getGames(LocalDate startDate) {
         List<Game> games = new ArrayList<>();
         LocalDate date = startDate;
         for (int i = 0; i < numberOfGames; i++) {
