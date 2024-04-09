@@ -8,8 +8,10 @@ import java.time.Month;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -57,18 +59,37 @@ public class Main {
             }
 
             List<Game> schedule = scheduleGames(series, teams);
-            System.out.println(OPENING_DAY);
+            System.out.println(schedule);
         } catch (IOException | LeagueInputException e) {
             LOG.error(e.toString());
         }
     }
 
     private static List<Game> scheduleGames(List<Series> allSeries, List<Team> teams) {
+        Collections.shuffle(allSeries);
         List<Game> games = new ArrayList<>();
 
         LocalDate today = OPENING_DAY;
         while (!allSeries.isEmpty()) {
 
+            Set<Team> usedTeams = new HashSet<>();
+
+            while (usedTeams.size() != teams.size()) {
+
+                Series series = allSeries.stream()
+                    .filter(s -> !usedTeams.contains(s.getAway()) && !usedTeams.contains(s.getHome()))
+                    .findAny().orElse(null);
+
+                if (series != null) {
+                    if (today.equals(OPENING_DAY) && series.getNumberOfGames() == 2) {
+                        continue;
+                    }
+                    usedTeams.add(series.getAway());
+                    usedTeams.add(series.getHome());
+                    games.addAll(series.getGames(today));
+                }
+            }
+            today = today.plusDays(4);
         }
         return games;
     }
@@ -93,7 +114,8 @@ public class Main {
                             for (int j = 0; j < otherTeams.size(); j++) {
                                 Team otherTeam = otherTeams.get(j);
 
-                                if ((j == i || j == (i + 1) % otherTeams.size()) && b == (a + 1) % divisions.size()) {
+                                if ((j == i || j == (i + 1) % otherTeams.size())
+                                    && b == (a + 1) % divisions.size()) {
                                     series.add(new Series(4, team, otherTeam));
                                 } else {
                                     series.add(new Series(3, team, otherTeam));
@@ -133,14 +155,15 @@ public class Main {
 
         if (series.size() != 40) {
             throw new RuntimeException(
-                "Failed to create 40 divisional series for " + division.getName() + "; only created " + series.size());
+                "Failed to create 40 divisional series for " + division.getName() + "; only created "
+                    + series.size());
         }
 
         return series;
     }
 
     private static List<Series> getInterleagueSeries(Classification mlb) throws LeagueInputException {
-        List<Series> interleagueSeries = new ArrayList<>();
+        List<Series> series = new ArrayList<>();
 
         List<Team> teams = mlb.getLeagues()
             .get(0)
@@ -157,27 +180,21 @@ public class Main {
             .collect(Collectors.toList());
 
         for (Team team : teams) {
-            Collections.shuffle(otherTeams);
-            List<Series> seriesForTeam = new ArrayList<>();
+            Team rival = otherTeams.stream()
+                .filter(t -> team.getRival().equals(t.getCode()))
+                .findFirst()
+                .orElseThrow(() -> new LeagueInputException(
+                    "Team " + team.getCode() + " has no rival designated in other league."));
 
-            Team rival = null;
-            for (Team otherTeam : otherTeams) {
-                if (team.getRival().equals(otherTeam.getCode())) {
-                    rival = otherTeam;
-                } else if (seriesForTeam.size() < 7) {
-                    seriesForTeam.add(new Series(3, team, otherTeam));
-                } else {
-                    seriesForTeam.add(new Series(3, otherTeam, team));
-                }
-            }
-            if (rival == null) {
-                throw new LeagueInputException("Team " + team.getCode() + " has no rival designated in other league.");
-            }
-            seriesForTeam.add(new Series(2, team, rival));
-            seriesForTeam.add(new Series(2, rival, team));
+            int rivalIndex = otherTeams.indexOf(rival);
+            series.add(new Series(2, team, rival));
+            series.add(new Series(2, rival, team));
 
-            interleagueSeries.addAll(seriesForTeam);
+            for (int j = 1; j <= 7; j++) {
+                series.add(new Series(3, team, otherTeams.get((rivalIndex + j) % otherTeams.size())));
+                series.add(new Series(3, otherTeams.get(Math.abs((rivalIndex + j + 7) % otherTeams.size())), team));
+            }
         }
-        return interleagueSeries;
+        return series;
     }
 }
